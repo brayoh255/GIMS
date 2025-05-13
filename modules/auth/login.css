@@ -1,0 +1,345 @@
+:root {
+    --primary-color: #FF6B35;
+    --secondary-color: #004E89;
+    --accent-color: #FFBE0B;
+    --light-color: #F7F7FF;
+    --dark-color: #1A1A1A;
+    --error-color: #EF476F;
+    --success-color: #06D6A0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.floating-bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.bubble {
+    position: absolute;
+    background-color: rgba(255, 107, 53, 0.1);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+}
+
+.bubble:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    right: 15%;
+    top: 30%;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+    width: 70px;
+    height: 70px;
+    left: 25%;
+    bottom: 20%;
+    animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+    width: 120px;
+    height: 120px;
+    right: 25%;
+    bottom: 15%;
+    animation-delay: 6s;
+}
+
+.bubble:nth-child(5) {
+    width: 90px;
+    height: 90px;
+    left: 50%;
+    top: 50%;
+    animation-delay: 8s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-100px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tagline {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    transition: all 0.3s;
+}
+
+.form-group .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background-color: #f9f9f9;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+    outline: none;
+    background-color: white;
+}
+
+.form-group input:focus + .icon {
+    color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.login-btn {
+    padding: 15px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.login-btn i {
+    transition: all 0.3s;
+}
+
+.login-btn:hover {
+    background: linear-gradient(to right, #FF5A1F, #003D6B);
+    box-shadow: 0 6px 20px rgba(0, 78, 137, 0.4);
+    transform: translateY(-2px);
+}
+
+.login-btn:hover i {
+    transform: translateX(5px);
+}
+
+.error-message {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: rgba(239, 71, 111, 0.1);
+    border-left: 4px solid var(--error-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--error-color);
+    font-size: 0.9rem;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.divider {
+    color: #ddd;
+}
+
+.gas-tank-animation {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    z-index: 0;
+    opacity: 0.1;
+}
+
+.tank {
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    background-color: var(--secondary-color);
+    border-radius: 20px 20px 60px 60px;
+    bottom: 0;
+    right: 50px;
+}
+
+.valve {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    top: 30px;
+    right: 55px;
+    transform: rotate(15deg);
+}
+
+.base {
+    position: absolute;
+    width: 180px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 5px;
+    bottom: 0;
+    right: 35px;
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .logo {
+        flex-direction: column;
+    }
+    
+    .logo i {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .gas-tank-animation {
+        display: none;
+    }
+}

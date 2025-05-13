@@ -1,0 +1,138 @@
+/* Custom Variables */
+:root {
+    --primary-color: #FF6B35;
+    --secondary-color: #004E89;
+    --accent-color: #FFBE0B;
+    --sidebar-bg: linear-gradient(135deg, #1A1A1A, #2a2a2a);
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.3); }
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background: var(--sidebar-bg);
+    box-shadow: 5px 0 25px rgba(0,0,0,0.3);
+}
+
+.sidebar-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: linear-gradient(90deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+}
+
+/* Card Styles */
+.stat-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.stat-card:nth-child(1)::before { background: #4f46e5; }
+.stat-card:nth-child(2)::before { background: #f59e0b; }
+.stat-card:nth-child(3)::before { background: #ef4444; }
+.stat-card:nth-child(4)::before { background: #10b981; }
+.stat-card:nth-child(5)::before { background: #8b5cf6; }
+.stat-card:nth-child(6)::before { background: #06b6d4; }
+.stat-card:nth-child(7)::before { background: #ec4899; }
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Active Menu Item */
+.active-menu-item {
+    background: rgba(79, 70, 229, 0.15);
+    border-left: 3px solid #4f46e5;
+}
+
+/* Pulse Animation */
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Glow Effect */
+.glow-effect {
+    animation: glow 3s infinite;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1023px) {
+    .sidebar {
+        box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+    }
+}
+
+/* Month Indicator */
+.month-indicator {
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    color: white;
+    border-radius: 20px;
+    padding: 0.25rem 1rem;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Value Animation */
+.value-display {
+    transition: all 0.5s ease;
+}
+
+.value-display.changed {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
